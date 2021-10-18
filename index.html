@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning vue</title>
+    <link rel="stylesheet" href="./vue.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Hello Vue:)</h1>
+
+    <div id="app">
+        <!-- attribute binding -->
+        <!-- <a v-bind:href="url">Best Website  Ever</a> -->
+        
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in filteredBooks" :class='{ fav: book.isFav}' @click="toggleFav(book)">
+                    <img :src="book.img" :alt="book.title ">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <button @click="toggleShowBooks">
+            <span v-if ="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <!-- <br> -->
+        <!-- mouse events -->
+
+        <!-- <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div> -->
+        <!-- <div class="box" @mouseleave="handleEvent">mouseleave</div> -->
+        <!-- <div class="box" @dblclick="handleEvent">double click</div> -->
+        <!-- <div class="box" @mousemove="handleMousemover">Postion -{{ x }} {{ y }}</div> -->
+        
+    </div>
+    <!-- <button v-on:click="age++">Increase Age</button> -->
+        <!-- <button v-on:click="age--">Decrease Age</button> -->
+        <!-- <div @click="changeTitle('Oath')">Change Book Title</div> -->
+    
+
+
+    <script src="./app.js"></script>
+</body>
+</html>
